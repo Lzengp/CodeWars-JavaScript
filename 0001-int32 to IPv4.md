@@ -38,3 +38,10 @@ function int32ToIp(int32){
     return `${parseInt(r.slice(0, 8), 2)}.${parseInt(r.slice(8, 16), 2)}.${parseInt(r.slice(16, 24), 2)}.${parseInt(r.slice(24, 32), 2)}`;
 }
 ```
+
+## 优解
+```
+function int32ToIp(int32){
+    return (int32>>>24) + '.' + (int32<<8>>>24) + '.' + (int32<<16>>>24) + '.' + (int32<<24>>>24)
+}
+```
